@@ -4,6 +4,7 @@ import { Col, Row } from "react-bootstrap";
 import Navigation from "../Navigation/Navigation";
 import styles from "./DefaultLayout.module.scss";
 import clsx from "clsx";
+import MainContent from "../MainContent/MainContent";
 
 interface DefaultLayoutProps {
   message: string;
@@ -17,18 +18,18 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({ message }) => {
     <>
       <div className={clsx(styles.wrapper)}>
         <Row>
-          <Col lg={3}>
+          <Col className={clsx(styles.col_lg_3)}>
             <Navigation />
           </Col>
-          <Col lg={9} xxl={6}>
-            MainContent
+          <Col>
+            <MainContent />
           </Col>
-          <Col xxl={3} >
+          <Col className={clsx(styles.col_lg_3)} >
             SideBar
           </Col>
         </Row>
       </div>
-      {console.log(spotify_context.exampleField)}
+      {/* {console.log(spotify_context.exampleField)} */}
     </>
   );
 }

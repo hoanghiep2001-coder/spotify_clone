@@ -1,5 +1,22 @@
+@font-face {
+    font-family: "Inter_Light";
+    src: url('../../Assets/font/static/Inter-Light.ttf');
+}
+@font-face {
+    font-family: "Inter_Regular";
+    src: url('../../Assets/font/static/Inter-Regular.ttf');
+}
+@font-face {
+    font-family: "Inter_Medium";
+    src: url('../../Assets/font/static/Inter-Medium.ttf');
+}
+@font-face {
+    font-family: "Inter_Bold";
+    src: url('../../Assets/font/static/Inter-Bold.ttf');
+}
+
 .main-bgColor {
-    background-color: #1f1f1f;
+    background-color: #121212;
 }
 
 .cur-pointer {
