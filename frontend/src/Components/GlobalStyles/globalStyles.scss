@@ -1,0 +1,15 @@
+.main-bgColor {
+    background-color: #1f1f1f;
+}
+
+.cur-pointer {
+    cursor: pointer;
+}
+
+.text {
+    color: #e6e6e6;
+    transition: all 0.3s ease;
+    &:hover {
+        color: #fff;
+    }
+}
