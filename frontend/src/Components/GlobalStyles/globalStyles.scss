@@ -30,3 +30,34 @@
         color: #fff;
     }
 }
+
+
+
+
+@media (min-width: 1400px) {
+    .container {
+        background-color: #121212;
+        padding: 12px 20px !important;
+    }
+
+    .item {
+        background-color: #121212 !important;
+        font-size: 15px;
+        cursor: pointer;
+        font-family: "Inter_Bold";
+        display: flex !important;
+        align-items: center;
+        gap: 24px;
+        padding: 8px 16px;
+        color: #b3b3b3 !important;
+        transition: all 0.4s ease;
+        border: none !important;
+        outline: none;
+
+        &:hover {
+            color: #fff !important;
+        }
+    }
+
+    .icon {}
+}

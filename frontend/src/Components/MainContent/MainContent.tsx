@@ -8,10 +8,9 @@ interface MainContentProps {
 }
 
 const MainContent: React.FC<MainContentProps> = () => {
-
     return (
         <>
-
+            <h3>MainContent</h3>
         </>
     );
 }

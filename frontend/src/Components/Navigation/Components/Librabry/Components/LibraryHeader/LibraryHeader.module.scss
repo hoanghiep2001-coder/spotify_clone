@@ -26,4 +26,15 @@
     }
 
     .icon {}
+
+
+    .item_many {
+        gap: 16px;
+
+        span {
+            font-family: "Inter_Medium";
+            font-size: 13px;
+            color: #fff;
+        }
+    }
 }

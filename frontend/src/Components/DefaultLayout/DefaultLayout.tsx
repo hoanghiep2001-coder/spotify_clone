@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { context } from "../../provider/Provider";
+import React, {  } from "react";
+// import { context } from "../../provider/Provider";
 import { Col, Row } from "react-bootstrap";
 import Navigation from "../Navigation/Navigation";
 import styles from "./DefaultLayout.module.scss";
@@ -12,8 +12,9 @@ interface DefaultLayoutProps {
 
 const DefaultLayout: React.FC<DefaultLayoutProps> = ({ message }) => {
 
-  const spotify_context = useContext(context)
-
+  // const spotify_context = useContext(context)
+  // console.log(spotify_context.accessToken);
+  
   return (
     <>
       <div className={clsx(styles.wrapper)}>

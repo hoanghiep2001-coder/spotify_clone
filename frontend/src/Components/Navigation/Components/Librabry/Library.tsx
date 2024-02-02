@@ -1,5 +1,6 @@
-import React from "react";
-import styles from "./Library.module.scss";
+import React, { } from "react";
+import LibraryHeader from "./Components/LibraryHeader/LibraryHeader";
+import LibraryContent from "./Components/LibraryContent/LibraryContent";
 
 
 interface LibraryProps {
@@ -9,9 +10,10 @@ interface LibraryProps {
 const Library: React.FC<LibraryProps> = () => {
 
     return (
-        <>
-            <h2>Library</h2>
-        </>
+        <div className="container">
+            <LibraryHeader suggestItems={["Playlist", "Artists", "Albums", "Podcasts"]}/>
+            <LibraryContent />
+        </div>
     );
 }
 
