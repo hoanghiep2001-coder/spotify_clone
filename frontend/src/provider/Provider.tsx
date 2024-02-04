@@ -25,9 +25,10 @@ const Provider: React.FC<ProviderProps> = ({ children }) => {
     const handleResize = () => {
         setWindowWidth(window.innerWidth);
       };
+
+
     // get AccessToken
     useEffect(() => {
-        // API Access Token
         var authParameters = {
             method: "POST",
             headers: {
@@ -40,6 +41,7 @@ const Provider: React.FC<ProviderProps> = ({ children }) => {
             .then(result => result.json())
             .then(data => setAccessToken(data.access_token));
     }, []);
+    // ------------------------
 
     // get changes of resize
     useEffect(() => {
@@ -54,8 +56,8 @@ const Provider: React.FC<ProviderProps> = ({ children }) => {
           return () => {
             window.removeEventListener("resize", handleResize);
           };
-    }, [windowWidth])
-
+    }, [windowWidth]);
+    // ------------------------
 
     const value = {
         accessToken,

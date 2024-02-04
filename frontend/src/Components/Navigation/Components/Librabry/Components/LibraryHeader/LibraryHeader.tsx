@@ -12,7 +12,7 @@ interface LibraryHeaderProps {
 const LibraryHeader: React.FC<LibraryHeaderProps> = ({ suggestItems }) => {
     return (
         <>
-            <ListGroup>
+            <ListGroup className={clsx(styles.container)}>
                 <ListGroup.Item className={clsx(styles.item)}>
                     <LibraryIcon width="1.6rem" height="1.6rem" className={clsx()} />
                     <span>Your Library</span>
