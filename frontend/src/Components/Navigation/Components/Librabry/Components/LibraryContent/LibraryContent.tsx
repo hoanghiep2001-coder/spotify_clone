@@ -1,53 +1,48 @@
 import React, { useContext, useEffect, useState } from "react";
 import styles from "./LibraryContent.module.scss";
 import clsx from "clsx";
+import axios from "axios";
 import { ListIcon, SearchIcon } from "../../../../../../Assets/Icons/icons";
 import { context } from "../../../../../../provider/Provider";
 
 interface LibraryContentProps {}
 
 const LibraryContent: React.FC<LibraryContentProps> = () => {
-  const spotify_context = useContext(context);
-  const [artistsID, setArtistsID] = useState("");
 
-//   const check = async (param: object) => {
-//     await fetch(
-//         "https://api.spotify.com/v1/search?q=MTP&type=artist",
-//         param
-//       )
-//         .then((res) => res.json())
-//         .then((data) => setArtistsID(data.artists.items[0].id))
-//   }
 
-//   const check2 = async (param: object) => {
-//     await fetch(
-//         `https://api.spotify.com/v1/artists/${artistsID}/albums?include_groups=single`,
-//         param
-//       )
-//         .then((res) => res.json())
-//         .then((data) => console.log(data)
-//         )
-//   }
-//   useEffect(() => {
-//     var artistParameters = {
-//       method: "GET",
-//       headers: {
-//         "Content-Type": "application/json",
-//         Authorization: "Bearer " + spotify_context.accessToken,
-//       },
-//     };
+  useEffect(() => {
+    const fetchTracks = async () => {
+      const options = {
+        method: "GET",
+        url: "https://spotify23.p.rapidapi.com/search/",
+        params: {
+          q: "<REQUIRED>",
+          type: "multi",
+          offset: "0",
+          limit: "10",
+          numberOfTopResults: "5",
+        },
+        headers: {
+          "X-RapidAPI-Key":
+            "3868ccd1a5msh9d61efe6e01ce3ep119e6ejsn604a1a4eb906",
+          "X-RapidAPI-Host": "spotify23.p.rapidapi.com",
+        },
+      };
 
-//     check(artistParameters)
-//     check2(artistParameters)
-//   }, []);
+      try {
+        const response = await axios.request(options);
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchTracks();
+  }, []);
 
   return (
     <>
-      <div
-      // style={{
-      //     height:
-      // }}
-      >
+      <div>
         <div className={clsx("item", styles.item)}>
           <SearchIcon width="1.2rem" height="1.2rem" className={clsx()} />
           <ListIcon width="1.2rem" height="1.2rem" className={clsx()} />

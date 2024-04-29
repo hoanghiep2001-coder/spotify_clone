@@ -1,28 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import DefaultLayout from './Components/DefaultLayout/DefaultLayout';
+import icon from "../src/Assets/favicon/spotify.png";
+
+function changeFavicon(src: string): void {
+  const link: HTMLLinkElement = document.querySelector("link[rel='icon']") || document.createElement('link');
+  link.type = 'image/x-icon';
+  link.rel = 'icon';
+  link.href = src;
+  document.getElementsByTagName('head')[0].appendChild(link);
+}
 
 const App: React.FC = () => {
-  // useEffect(() => {
-  //   setTimeout(async () => {
-  //     var artistParameters = {
-  //       method: "GET",
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //         'Authorization': 'Bearer ' + accessToken
-  //       },
-  //     }
-
-  //     await fetch('https://api.spotify.com/v1/search?q=MTP&type=artist', artistParameters)
-  //       .then(res => res.json())
-  //       .then(data => setArtistsID(data.artists.items[0].id));
-  //     console.log(artistsID);
-      
-  //   }, 2000);
-  // }, []);
+  useEffect(() => {
+    document.title = "Spotify - Clone || Dương Hiệp";
+    changeFavicon(icon);
+  }, []);
 
   return (
     <div className="App">
-      <DefaultLayout message='ahihi' />
+      <DefaultLayout />
     </div>
   );
 }

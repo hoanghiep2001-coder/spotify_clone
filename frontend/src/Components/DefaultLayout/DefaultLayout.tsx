@@ -7,10 +7,10 @@ import clsx from "clsx";
 import MainContent from "../MainContent/MainContent";
 
 interface DefaultLayoutProps {
-  message: string;
+
 }
 
-const DefaultLayout: React.FC<DefaultLayoutProps> = ({ message }) => {
+const DefaultLayout: React.FC<DefaultLayoutProps> = ({  }) => {
 
   // const spotify_context = useContext(context)
   // console.log(spotify_context.accessToken);
