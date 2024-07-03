@@ -9,6 +9,7 @@ interface LibraryContentProps {}
 
 const LibraryContent: React.FC<LibraryContentProps> = () => {
 
+  const [data, setData] = useState({});
 
   useEffect(() => {
     const fetchTracks = async () => {
@@ -31,6 +32,7 @@ const LibraryContent: React.FC<LibraryContentProps> = () => {
 
       try {
         const response = await axios.request(options);
+        setData(response.data);
         console.log(response.data);
       } catch (error) {
         console.error(error);
@@ -46,6 +48,22 @@ const LibraryContent: React.FC<LibraryContentProps> = () => {
         <div className={clsx("item", styles.item)}>
           <SearchIcon width="1.2rem" height="1.2rem" className={clsx()} />
           <ListIcon width="1.2rem" height="1.2rem" className={clsx()} />
+        </div>
+        <div className={clsx(styles.listLibrary)}>
+          <div className={clsx(styles.listLibrary_Item)}>
+            <div className={clsx(styles.Item_img)}>
+              <img src={data.playlists.items[0].data.images.items[0].sources[0].url} alt="" />
+              
+            </div>
+            <div className={clsx(styles.Item_content)}>
+              <p className={clsx(styles.Content_Name)}>
+
+              </p>
+              <p className={clsx(styles.Content_Author)}>
+
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </>
