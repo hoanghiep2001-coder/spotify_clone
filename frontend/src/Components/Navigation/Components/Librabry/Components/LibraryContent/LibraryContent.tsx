@@ -8,8 +8,7 @@ import { context } from "../../../../../../provider/Provider";
 interface LibraryContentProps {}
 
 const LibraryContent: React.FC<LibraryContentProps> = () => {
-
-  const [data, setData] = useState({});
+  const [data, setData] = useState<any>(null);  // Sử dụng any nếu không có type cụ thể
 
   useEffect(() => {
     const fetchTracks = async () => {
@@ -43,30 +42,34 @@ const LibraryContent: React.FC<LibraryContentProps> = () => {
   }, []);
 
   return (
-    <>
-      <div>
-        <div className={clsx("item", styles.item)}>
-          <SearchIcon width="1.2rem" height="1.2rem" className={clsx()} />
-          <ListIcon width="1.2rem" height="1.2rem" className={clsx()} />
-        </div>
-        <div className={clsx(styles.listLibrary)}>
+    <div>
+      <div className={clsx("item", styles.item)}>
+        <SearchIcon width="1.2rem" height="1.2rem" className={clsx()} />
+        <ListIcon width="1.2rem" height="1.2rem" className={clsx()} />
+      </div>
+      <div className={clsx(styles.listLibrary)}>
+        {data && data.playlists && data.playlists.items && data.playlists.items.length > 0 ? (
           <div className={clsx(styles.listLibrary_Item)}>
             <div className={clsx(styles.Item_img)}>
-              <img src={data.playlists.items[0].data.images.items[0].sources[0].url} alt="" />
-              
+              <img 
+                src={data.playlists.items[0].data.images.items[0].sources[0].url} 
+                alt={data.playlists.items[0].data.name || "Playlist Image"} 
+              />
             </div>
             <div className={clsx(styles.Item_content)}>
               <p className={clsx(styles.Content_Name)}>
-
+                {data.playlists.items[0].data.name}
               </p>
               <p className={clsx(styles.Content_Author)}>
-
+                {data.playlists.items[0].data.owner.name}
               </p>
             </div>
           </div>
-        </div>
+        ) : (
+          <p>No data available</p>
+        )}
       </div>
-    </>
+    </div>
   );
 };
 
